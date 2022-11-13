@@ -36,5 +36,20 @@ void VoteList::createVoteList(vector<vector<string>> &list) {
 }
 
 void VoteList::sortByPointsVoteList(vector<vector<string>> &list) {
+    vector<string> tmp(size(list[0]));
+    for (int i = 0; i < size(list)-1; ++i) {
+        for (int j = 0; j < size(list)-1; ++j) {
+            if (list[j][2] < list[j+1][2]) {
+                tmp = list[j];
+                list[j] = list[j+1];
+                list[j+1] = tmp;
+            }
+        }
+    }
+}
 
+void VoteList::setPlacesByOrder(vector<vector<string>> &list) {
+    for (int i = 0; i < size(list); ++i) {
+        list[i][3] = to_string(i+1);
+    }
 }

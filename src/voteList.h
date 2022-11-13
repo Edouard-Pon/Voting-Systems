@@ -14,6 +14,7 @@ public:
     static void showList(vector<vector<string>> list);
     static void createVoteList(vector<vector<string>> &list);
     static void sortByPointsVoteList(vector<vector<string>> &list);
+    static void setPlacesByOrder(vector<vector<string>> &list);
 
 };
 
