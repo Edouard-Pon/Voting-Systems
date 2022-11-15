@@ -16,7 +16,7 @@ int main() {
     for (int i = 0; i < 10; ++i) PluralityVoting::makeVote(voteList);
 
     // Sort Test
-    VoteList::sortByPointsVoteList(voteList);
+    VoteList::sortByPointsVoteList(voteList, 2);
     cout << endl;
     VoteList::showList(voteList, false);
 

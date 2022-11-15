@@ -9,5 +9,5 @@ void PluralityVoting::makeVote(vector<vector<string>> &list) {
     cout << "Make your vote by choosing id: ";
     cin >> nameId;
 
-    VoteList::addPoints(list, nameId, 1);
+    VoteList::addPoints(list, nameId, 1, 2);
 }
