@@ -3,7 +3,7 @@
 
 void VoteList::addToList(vector<vector<string>> &list, const string name, const unsigned id, const unsigned points, const unsigned place) {
     list[id].resize(7);
-    list[id][0] = to_string(id);
+    list[id][0] = to_string(id+1);
     list[id][1] = name;
     list[id][2] = to_string(points); // sb points
     list[id][3] = to_string(points); // pv points

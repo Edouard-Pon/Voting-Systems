@@ -1,6 +1,7 @@
 #include <iostream>
 #include "voteList.h"
 #include "pluralityVoting.h"
+#include "secretBallot.h"
 
 using namespace std;
 
@@ -13,7 +14,7 @@ int main() {
     VoteList::showList(voteList, false);
 
     // Make Vote Test 10 Users
-    for (int i = 0; i < 10; ++i) PluralityVoting::makeVote(voteList);
+    for (int i = 0; i < 10; ++i) SecretBallot::makeVote(voteList);
 
     // Sort Test
     VoteList::sortByPointsVoteList(voteList, 2);
