@@ -5,7 +5,7 @@
 void PluralityVoting::makeVote(vector<vector<string>> &candidateList, vector<vector<string>> &voterList) {
     unsigned candidateId;
     unsigned voteCounter = 0;
-    const unsigned numberOfVotePerVoter = size(candidateList) / 2;
+    const unsigned numberOfVotePerVoter = (size(candidateList) < 10) ? size(candidateList) / 2 : 5;
     const unsigned pointsIndex = 3;
     const unsigned points = 1;
     string voterName;
