@@ -1,7 +1,7 @@
-#include "voteList.h"
+#include "candidateList.h"
 
 
-void VoteList::addToList(vector<vector<string>> &list, const string name, const unsigned id, const unsigned points, const unsigned place) {
+void CandidateList::addToList(vector<vector<string>> &list, const string name, const unsigned id, const unsigned points, const unsigned place) {
     list[id].resize(7);
     list[id][0] = to_string(id+1);
     list[id][1] = name;
@@ -12,7 +12,9 @@ void VoteList::addToList(vector<vector<string>> &list, const string name, const 
     list[id][6] = to_string(place);
 }
 
-void VoteList::showList(const vector<vector<string>> list, const bool hidePointsPlace) {
+void CandidateList::showList(const vector<vector<string>> list, const bool hidePointsPlace) {
+    const string sepLine = "====================";
+    cout << sepLine << endl;
     for (int i = 0; i < size(list); ++i) {
         if (hidePointsPlace)  cout << "id: " << list[i][0] << " | "
                                    << "name: " << list[i][1] << endl;
@@ -24,27 +26,28 @@ void VoteList::showList(const vector<vector<string>> list, const bool hidePoints
                 << "bv points: " << list[i][5] << " | "
                 << "place: " << list[i][6] << endl;
     }
+    cout << sepLine << endl;
 }
 
-void VoteList::createVoteList(vector<vector<string>> &list) {
+void CandidateList::createVoteList(vector<vector<string>> &list) {
     unsigned listSize;
-    unsigned points = 0;
-    unsigned place = 0;
-    string choiceName;
+    const unsigned points = 0;
+    const unsigned place = 0;
+    string candidateName;
 
-    cout << "Enter number of choices: ";
+    cout << "Enter number of candidates: ";
     cin >> listSize;
     list.resize(listSize);
 
     for (unsigned id = 0; id < size(list); ++id) {
-        cout << "Enter choice name: ";
-        cin >> choiceName;
-        addToList(list, choiceName, id, points, place);
+        cout << "Enter candidate name: ";
+        cin >> candidateName;
+        addToList(list, candidateName, id, points, place);
     }
 }
 
 // compIndex = 2 || 3 || 4 || 5
-void VoteList::sortByPointsVoteList(vector<vector<string>> &list, const unsigned compIndex) {
+void CandidateList::sortByPointsVoteList(vector<vector<string>> &list, const unsigned compIndex) {
     vector<string> tmp(size(list[0]));
     for (int i = 0; i < size(list)-1; ++i) {
         for (int j = 0; j < size(list)-1; ++j) {
@@ -57,16 +60,24 @@ void VoteList::sortByPointsVoteList(vector<vector<string>> &list, const unsigned
     }
 }
 
-void VoteList::setPlacesByOrder(vector<vector<string>> &list) {
+void CandidateList::setPlacesByOrder(vector<vector<string>> &list) {
     for (int i = 0; i < size(list); ++i) {
         list[i][6] = to_string(i+1);
     }
 }
 
-void VoteList::addPoints(vector<vector<string>> &list, const unsigned id, const unsigned points, const unsigned pointsIndex) {
+void CandidateList::addPoints(vector<vector<string>> &list, const unsigned id, const unsigned points, const unsigned pointsIndex) {
     for (int i = 0; i < size(list); ++i) {
         if (list[i][0] == to_string(id)) {
             list[i][pointsIndex] = to_string(stoi(list[i][pointsIndex]) + points);
+        }
+    }
+}
+
+string CandidateList::getCandidateNameById(vector<vector<string>> candidateList, unsigned candidateId) {
+    for (int i = 0; i < size(candidateList); ++i) {
+        if (candidateList[i][0] == to_string(candidateId)) {
+            return candidateList[i][1];
         }
     }
 }
