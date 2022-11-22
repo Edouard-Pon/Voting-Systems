@@ -11,6 +11,8 @@ class VoterList {
 
 public:
     static void addVoter(vector<vector<string>> &voterList, string voterName, string voterSurname, unsigned id);
+    static void addSelectedCandidate(vector<vector<string>> &voterList, string candidateName, unsigned voterId);
+    static void showVoterList(vector<vector<string>> voterList, bool hideVotes, unsigned voteSystemId);
 
 };
 

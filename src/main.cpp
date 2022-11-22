@@ -2,6 +2,7 @@
 #include "candidateList.h"
 #include "pluralityVoting.h"
 #include "secretBallot.h"
+#include "voterList.h"
 
 using namespace std;
 
@@ -14,7 +15,7 @@ int main() {
     CandidateList::createVoteList(candidateList);
     CandidateList::showList(candidateList, false);
 
-    // Make Vote Test 10 Users
+    // Make Vote Test 4 Users
     for (int i = 0; i < 4; ++i) {
 //        SecretBallot::makeVote(candidateList);
 //        cout << endl;
@@ -31,7 +32,7 @@ int main() {
     CandidateList::setPlacesByOrder(candidateList);
     cout << endl;
     CandidateList::showList(candidateList, false);
-    PluralityVoting::showVoterList(voterList, false);
+    VoterList::showVoterList(voterList, false, 1);
 
     return 0;
 }

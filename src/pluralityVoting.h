@@ -11,8 +11,6 @@ class PluralityVoting {
 
 public:
     static void makeVote(vector<vector<string>> &candidateList, vector<vector<string>> &voterList);
-    static void addSelectedCandidate(vector<vector<string>> &voterList, string candidateName, unsigned voterId);
-    static void showVoterList(vector<vector<string>> voterList, bool hideVotes);
 
 };
 
