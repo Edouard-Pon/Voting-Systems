@@ -1,5 +1,6 @@
 #include "pluralityVoting.h"
 #include "candidateList.h"
+#include "voterList.h"
 
 
 void PluralityVoting::makeVote(vector<vector<string>> &candidateList, vector<vector<string>> &voterList) {
@@ -16,7 +17,7 @@ void PluralityVoting::makeVote(vector<vector<string>> &candidateList, vector<vec
     cin >> voterName;
     cout << "Enter your Surname: ";
     cin >> voterSurname;
-    addVoter(voterList, voterName, voterSurname, size(voterList));
+    VoterList::addVoter(voterList, voterName, voterSurname, size(voterList));
     while (voteCounter != numberOfVotePerVoter) {
         CandidateList::showList(candidateList, true);
         cout << "Make your vote by choosing id: ";
@@ -26,17 +27,6 @@ void PluralityVoting::makeVote(vector<vector<string>> &candidateList, vector<vec
         CandidateList::addPoints(candidateList, candidateId, points, pointsIndex);
         ++voteCounter;
     }
-}
-
-void PluralityVoting::addVoter(vector<vector<string>> &voterList, const string voterName, const string voterSurname,
-                               const unsigned id) {
-    vector<string> voter;
-
-    voter.push_back(to_string(id+1));
-    voter.push_back(voterName);
-    voter.push_back(voterSurname);
-
-    voterList.push_back(voter);
 }
 
 void PluralityVoting::addSelectedCandidate(vector<vector<string>> &voterList, const string candidateName, const unsigned voterId) {

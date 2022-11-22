@@ -10,8 +10,7 @@ using namespace std;
 class PluralityVoting {
 
 public:
-    static void makeVote(vector<vector<string>> &list, vector<vector<string>> &voterList);
-    static void addVoter(vector<vector<string>> &voterList, string voterName, string voterSurname, unsigned id);
+    static void makeVote(vector<vector<string>> &candidateList, vector<vector<string>> &voterList);
     static void addSelectedCandidate(vector<vector<string>> &voterList, string candidateName, unsigned voterId);
     static void showVoterList(vector<vector<string>> voterList, bool hideVotes);
 
