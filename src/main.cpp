@@ -1,5 +1,5 @@
 #include <iostream>
-#include "voteList.h"
+#include "candidateList.h"
 #include "pluralityVoting.h"
 #include "secretBallot.h"
 
@@ -8,23 +8,30 @@ using namespace std;
 
 int main() {
 
-    vector<vector<string>> voteList;
+    vector<vector<string>> candidateList;
+    vector<vector<string>> voterList;
 
-    VoteList::createVoteList(voteList);
-    VoteList::showList(voteList, false);
+    CandidateList::createVoteList(candidateList);
+    CandidateList::showList(candidateList, false);
 
     // Make Vote Test 10 Users
-    for (int i = 0; i < 10; ++i) SecretBallot::makeVote(voteList);
+    for (int i = 0; i < 4; ++i) {
+//        SecretBallot::makeVote(candidateList);
+//        cout << endl;
+        PluralityVoting::makeVote(candidateList, voterList);
+        cout << endl;
+    }
 
     // Sort Test
-    VoteList::sortByPointsVoteList(voteList, 2);
+    CandidateList::sortByPointsVoteList(candidateList, 3);
     cout << endl;
-    VoteList::showList(voteList, false);
+    CandidateList::showList(candidateList, false);
 
     // Set Places Test
-    VoteList::setPlacesByOrder(voteList);
+    CandidateList::setPlacesByOrder(candidateList);
     cout << endl;
-    VoteList::showList(voteList, false);
+    CandidateList::showList(candidateList, false);
+    PluralityVoting::showVoterList(voterList, false);
 
     return 0;
 }
