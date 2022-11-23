@@ -1,8 +1,9 @@
 #include <iostream>
 #include "candidateList.h"
+#include "voterList.h"
 #include "pluralityVoting.h"
 #include "secretBallot.h"
-#include "voterList.h"
+#include "bucklinVoting.h"
 
 using namespace std;
 
@@ -15,16 +16,16 @@ int main() {
     CandidateList::createVoteList(candidateList);
     CandidateList::showList(candidateList, false);
 
-    // Make Vote Test 4 Users
+    // Make Vote Test Multiple Users
     for (int i = 0; i < 4; ++i) {
 //        SecretBallot::makeVote(candidateList);
-//        cout << endl;
-        PluralityVoting::makeVote(candidateList, voterList);
+//        PluralityVoting::makeVote(candidateList, voterList);
+        BucklinVoting::makeVote(candidateList, voterList);
         cout << endl;
     }
 
     // Sort Test
-    CandidateList::sortByPointsVoteList(candidateList, 3);
+    CandidateList::sortByPointsVoteList(candidateList, 4);
     cout << endl;
     CandidateList::showList(candidateList, false);
 

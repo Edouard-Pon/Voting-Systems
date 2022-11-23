@@ -51,7 +51,7 @@ void CandidateList::sortByPointsVoteList(vector<vector<string>> &list, const uns
     vector<string> tmp(size(list[0]));
     for (int i = 0; i < size(list)-1; ++i) {
         for (int j = 0; j < size(list)-1; ++j) {
-            if (list[j][compIndex] < list[j+1][compIndex]) {
+            if (stoi(list[j][compIndex]) < stoi(list[j+1][compIndex])) {
                 tmp = list[j];
                 list[j] = list[j+1];
                 list[j+1] = tmp;
