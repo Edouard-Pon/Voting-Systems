@@ -18,7 +18,16 @@ void VoterList::addSelectedCandidate(vector<vector<string>> &voterList, const st
     }
 }
 
-// voteSystemId: 1 = plurality voting, 2 = bucklin voting
+void VoterList::addForAgainst(vector<vector<string>> &voterList, unsigned voterId, bool againstCandidate) {
+    for (int i = 0; i < size(voterList); ++i) {
+        if (voterList[i][0] == to_string(voterId)) {
+            if (againstCandidate) voterList[i].push_back("Against");
+            else voterList[i].push_back("For");
+        }
+    }
+}
+
+// voteSystemId: 1 = plurality voting, 2 = borda voting
 void VoterList::showVoterList(vector<vector<string>> voterList, bool hideVotes, unsigned voteSystemId) {
     const string sepLine = "====================";
     cout << sepLine << endl;
@@ -34,6 +43,9 @@ void VoterList::showVoterList(vector<vector<string>> voterList, bool hideVotes, 
             unsigned count = 5;
             for (unsigned j = 3; j < size(voterList[i]); ++j) cout << "+ " << --count << " to candidate: " << voterList[i][j] << " | ";
             cout << endl;
+        } else if (voteSystemId == 3) {
+            cout << "candidate: " << voterList[i][3] << " | "
+                << voterList[i][4] << endl;
         }
     }
     cout << sepLine << endl;

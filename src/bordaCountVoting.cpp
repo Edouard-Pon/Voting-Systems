@@ -8,11 +8,11 @@ void BordaCountVoting::makeVote(vector<vector<string>> &candidateList, vector<ve
     unsigned voteCounter = 0;
     const unsigned numberOfVotePerVoter = 4;
     const unsigned pointsIndex = 4;
-    unsigned points = 4;
+    int points = 4;
     string voterName;
     string voterSurname;
 
-    cout << "This is a Bucklin Vote!" << endl;
+    cout << "This is a Borda Count Voting!" << endl;
     cout << "Enter your Name: ";
     cin >> voterName;
     cout << "Enter your Surname: ";
