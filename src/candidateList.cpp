@@ -22,8 +22,8 @@ void CandidateList::showList(const vector<vector<string>> list, const bool hideP
                 << "name: " << list[i][1] << " | "
                 << "sb points: " << list[i][2] << " | "
                 << "pv points: " << list[i][3] << " | "
-                << "bc points: " << list[i][4] << " | "
-                << "bv points: " << list[i][5] << " | "
+                << "bv points: " << list[i][4] << " | "
+                << "nv points: " << list[i][5] << " | "
                 << "place: " << list[i][6] << endl;
     }
     cout << sepLine << endl;
@@ -66,10 +66,20 @@ void CandidateList::setPlacesByOrder(vector<vector<string>> &list) {
     }
 }
 
-void CandidateList::addPoints(vector<vector<string>> &list, const unsigned id, const unsigned points, const unsigned pointsIndex) {
+void CandidateList::addPoints(vector<vector<string>> &list, const unsigned id, const int points, const unsigned pointsIndex) {
     for (int i = 0; i < size(list); ++i) {
         if (list[i][0] == to_string(id)) {
             list[i][pointsIndex] = to_string(stoi(list[i][pointsIndex]) + points);
+        }
+    }
+}
+
+void CandidateList::removePoints(vector<vector<string>> &list, const unsigned id, const int points, const unsigned pointsIndex) {
+    for (int i = 0; i < size(list); ++i) {
+        if (list[i][0] == to_string(id)) {
+            cout << endl << "Debug: " << list[i][pointsIndex] << endl;
+            list[i][pointsIndex] = to_string(stoi(list[i][pointsIndex]) - points);
+            cout << endl << "Debug: " << list[i][pointsIndex] << endl;
         }
     }
 }
