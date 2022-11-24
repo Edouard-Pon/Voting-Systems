@@ -3,7 +3,7 @@
 #include "voterList.h"
 #include "pluralityVoting.h"
 #include "secretBallot.h"
-#include "bucklinVoting.h"
+#include "bordaCountVoting.h"
 
 using namespace std;
 
@@ -20,7 +20,7 @@ int main() {
     for (int i = 0; i < 4; ++i) {
 //        SecretBallot::makeVote(candidateList);
 //        PluralityVoting::makeVote(candidateList, voterList);
-        BucklinVoting::makeVote(candidateList, voterList);
+        BordaCountVoting::makeVote(candidateList, voterList);
         cout << endl;
     }
 

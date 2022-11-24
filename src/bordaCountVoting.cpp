@@ -1,9 +1,9 @@
-#include "bucklinVoting.h"
+#include "bordaCountVoting.h"
 #include "voterList.h"
 #include "candidateList.h"
 
 
-void BucklinVoting::makeVote(vector<vector<string>> &candidateList, vector<vector<string>> &voterList) {
+void BordaCountVoting::makeVote(vector<vector<string>> &candidateList, vector<vector<string>> &voterList) {
     unsigned candidateId;
     unsigned voteCounter = 0;
     const unsigned numberOfVotePerVoter = 4;

@@ -1,5 +1,5 @@
-#ifndef VOTING_SYSTEMS_BUCKLINVOTING_H
-#define VOTING_SYSTEMS_BUCKLINVOTING_H
+#ifndef VOTING_SYSTEMS_BORDACOUNTVOTING_H
+#define VOTING_SYSTEMS_BORDACOUNTVOTING_H
 
 #include <iostream>
 #include <vector>
@@ -7,7 +7,7 @@
 using namespace std;
 
 
-class BucklinVoting {
+class BordaCountVoting {
 
 public:
     static void makeVote(vector<vector<string>> &candidateList, vector<vector<string>> &voterList);
