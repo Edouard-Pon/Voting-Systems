@@ -37,11 +37,13 @@ void CandidateList::createVoteList(vector<vector<string>> &list) {
 
     cout << "Enter number of candidates: ";
     cin >> listSize;
+    cout << endl;
     list.resize(listSize);
 
     for (unsigned id = 0; id < size(list); ++id) {
         cout << "Enter candidate name: ";
         cin >> candidateName;
+        cout << endl;
         addToList(list, candidateName, id, points, place);
     }
 }
@@ -77,9 +79,7 @@ void CandidateList::addPoints(vector<vector<string>> &list, const unsigned id, c
 void CandidateList::removePoints(vector<vector<string>> &list, const unsigned id, const int points, const unsigned pointsIndex) {
     for (int i = 0; i < size(list); ++i) {
         if (list[i][0] == to_string(id)) {
-            cout << endl << "Debug: " << list[i][pointsIndex] << endl;
             list[i][pointsIndex] = to_string(stoi(list[i][pointsIndex]) - points);
-            cout << endl << "Debug: " << list[i][pointsIndex] << endl;
         }
     }
 }
@@ -90,4 +90,12 @@ string CandidateList::getCandidateNameById(vector<vector<string>> candidateList,
             return candidateList[i][1];
         }
     }
+}
+
+unsigned CandidateList::getCandidateWithSamePoints(vector<vector<string>> candidateList, const unsigned pointsIndex) {
+    unsigned candidatesCount = 1;
+    for (unsigned i = 1; i < size(candidateList); ++i) {
+        if (candidateList[0][pointsIndex] == candidateList[i][pointsIndex]) ++candidatesCount;
+    }
+    return candidatesCount;
 }

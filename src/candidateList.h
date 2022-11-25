@@ -18,6 +18,7 @@ public:
     static void addPoints(vector<vector<string>> &list, unsigned id, int points, unsigned pointsIndex);
     static void removePoints(vector<vector<string>> &list, unsigned id, int points, unsigned pointsIndex);
     static string getCandidateNameById(vector<vector<string>> candidateList, unsigned candidateId);
+    static unsigned getCandidateWithSamePoints(vector<vector<string>> candidateList, unsigned pointsIndex);
 
 };
 

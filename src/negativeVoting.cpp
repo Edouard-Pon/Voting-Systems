@@ -15,16 +15,20 @@ void NegativeVoting::makeVote(vector<vector<string>> &candidateList, vector<vect
     cout << "This is a Negative Voting!" << endl;
     cout << "Enter your Name: ";
     cin >> voterName;
+    cout << endl;
     cout << "Enter your Surname: ";
     cin >> voterSurname;
+    cout << endl;
     VoterList::addVoter(voterList, voterName, voterSurname, size(voterList));
     while (voteCounter != numberOfVotePerVoter) {
-        CandidateList::showList(candidateList, false);
+        CandidateList::showList(candidateList, true);
         cout << "Rules: Choose For or Against then vote for 1 candidate" << endl;
         cout << "For = 1 | Against = 2: ";
         cin >> forAgainst;
+        cout << endl;
         cout << "Type 0 to stop voting | Make your vote by choosing id: ";
         cin >> candidateId;
+        cout << endl;
         if (candidateId == 0) break;
         VoterList::addSelectedCandidate(voterList, CandidateList::getCandidateNameById(candidateList, candidateId), size(voterList));
         if (forAgainst == 1) {

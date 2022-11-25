@@ -11,6 +11,7 @@ void SecretBallot::makeVote(vector<vector<string>> &list) {
     cout << "This is a secret vote!" << endl;
     cout << "Make your vote by choosing id: ";
     cin >> candidateId;
+    cout << endl;
 
     CandidateList::addPoints(list, candidateId, points, pointsIndex);
 }

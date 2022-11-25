@@ -15,13 +15,16 @@ void PluralityVoting::makeVote(vector<vector<string>> &candidateList, vector<vec
     cout << "This is a Plurality Vote!" << endl;
     cout << "Enter your Name: ";
     cin >> voterName;
+    cout << endl;
     cout << "Enter your Surname: ";
     cin >> voterSurname;
+    cout << endl;
     VoterList::addVoter(voterList, voterName, voterSurname, size(voterList));
     while (voteCounter != numberOfVotePerVoter) {
         CandidateList::showList(candidateList, true);
         cout << "Make your vote by choosing id: ";
         cin >> candidateId;
+        cout << endl;
         if (candidateId == 0) break;
         VoterList::addSelectedCandidate(voterList, CandidateList::getCandidateNameById(candidateList, candidateId), size(voterList));
         CandidateList::addPoints(candidateList, candidateId, points, pointsIndex);

@@ -18,7 +18,7 @@ int main() {
     CandidateList::showList(candidateList, false);
 
     // Make Vote Test Multiple Users
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 6; ++i) {
 //        SecretBallot::makeVote(candidateList);
 //        PluralityVoting::makeVote(candidateList, voterList);
 //        BordaCountVoting::makeVote(candidateList, voterList);
@@ -36,6 +36,9 @@ int main() {
     cout << endl;
     CandidateList::showList(candidateList, false);
     VoterList::showVoterList(voterList, false, 3);
+
+    unsigned candidateWithSamePoints = CandidateList::getCandidateWithSamePoints(candidateList, 5);
+    cout << candidateWithSamePoints << endl;
 
     return 0;
 }
