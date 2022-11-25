@@ -27,7 +27,7 @@ void VoterList::addForAgainst(vector<vector<string>> &voterList, unsigned voterI
     }
 }
 
-// voteSystemId: 1 = plurality voting, 2 = borda voting
+// voteSystemId: 1 = plurality voting, 2 = borda voting, 3 = negative voting
 void VoterList::showVoterList(vector<vector<string>> voterList, bool hideVotes, unsigned voteSystemId) {
     const string sepLine = "====================";
     cout << sepLine << endl;

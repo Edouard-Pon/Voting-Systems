@@ -21,7 +21,7 @@ void PluralityVoting::makeVote(vector<vector<string>> &candidateList, vector<vec
     cout << endl;
     VoterList::addVoter(voterList, voterName, voterSurname, size(voterList));
     while (voteCounter != numberOfVotePerVoter) {
-        CandidateList::showList(candidateList, true);
+        CandidateList::showList(candidateList, 2, true);
         cout << "Make your vote by choosing id: ";
         cin >> candidateId;
         cout << endl;

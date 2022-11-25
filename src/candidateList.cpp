@@ -8,23 +8,23 @@ void CandidateList::addToList(vector<vector<string>> &list, const string name, c
     list[id][2] = to_string(points); // sb points
     list[id][3] = to_string(points); // pv points
     list[id][4] = to_string(points); // bc points
-    list[id][5] = to_string(points); // bv points
+    list[id][5] = to_string(points); // nv points
     list[id][6] = to_string(place);
 }
 
-void CandidateList::showList(const vector<vector<string>> list, const bool hidePointsPlace) {
+// voteSystemId: 1 = secret ballot, 2 = plurality voting, 3 = borda voting, 4 = negative voting
+void CandidateList::showList(const vector<vector<string>> list, const unsigned voteSystemId, const bool hidePointsPlace) {
     const string sepLine = "====================";
     cout << sepLine << endl;
     for (int i = 0; i < size(list); ++i) {
-        if (hidePointsPlace)  cout << "id: " << list[i][0] << " | "
-                                   << "name: " << list[i][1] << endl;
-        else cout << "id: " << list[i][0] << " | "
-                << "name: " << list[i][1] << " | "
-                << "sb points: " << list[i][2] << " | "
-                << "pv points: " << list[i][3] << " | "
-                << "bv points: " << list[i][4] << " | "
-                << "nv points: " << list[i][5] << " | "
-                << "place: " << list[i][6] << endl;
+        cout << "id: " << list[i][0] << " | "
+             << "name: " << list[i][1] << " | ";
+        if (voteSystemId == 1 && !hidePointsPlace) cout << "sb points: " << list[i][2] << " | ";
+        else if (voteSystemId == 2 && !hidePointsPlace) cout << "pv points: " << list[i][3] << " | ";
+        else if (voteSystemId == 3 && !hidePointsPlace) cout << "bv points: " << list[i][4] << " | ";
+        else if (voteSystemId == 4 && !hidePointsPlace) cout << "nv points: " << list[i][5] << " | ";
+        if (!hidePointsPlace) cout << "place: " << list[i][6];
+        cout << endl;
     }
     cout << sepLine << endl;
 }

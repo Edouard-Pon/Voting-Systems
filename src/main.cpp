@@ -14,31 +14,65 @@ int main() {
     vector<vector<string>> candidateList;
     vector<vector<string>> voterList;
 
+    unsigned numberOfVoters;
+
+    cout << "Enter number of voters: ";
+    cin >> numberOfVoters;
+    cout << endl;
+
+    cout << "~~~~~~~~~~~~~~~~~~~~" << endl;
+
     CandidateList::createVoteList(candidateList);
-    CandidateList::showList(candidateList, false);
+    CandidateList::showList(candidateList, 0, true);
 
-    // Make Vote Test Multiple Users
-    for (int i = 0; i < 6; ++i) {
-//        SecretBallot::makeVote(candidateList);
-//        PluralityVoting::makeVote(candidateList, voterList);
-//        BordaCountVoting::makeVote(candidateList, voterList);
-        NegativeVoting::makeVote(candidateList, voterList);
-        cout << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~" << endl;
+
+    for (int i = 0; i < numberOfVoters; ++i) {
+        SecretBallot::makeVote(candidateList);
     }
-
-    // Sort Test
-    CandidateList::sortByPointsVoteList(candidateList, 5);
-    cout << endl;
-    CandidateList::showList(candidateList, false);
-
-    // Set Places Test
+    CandidateList::sortByPointsVoteList(candidateList, 2);
     CandidateList::setPlacesByOrder(candidateList);
-    cout << endl;
-    CandidateList::showList(candidateList, false);
-    VoterList::showVoterList(voterList, false, 3);
+    CandidateList::showList(candidateList, 1, false);
+    voterList.clear();
+    CandidateList::sortByPointsVoteList(candidateList, 0);
 
-    unsigned candidateWithSamePoints = CandidateList::getCandidateWithSamePoints(candidateList, 5);
-    cout << candidateWithSamePoints << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~" << endl;
+
+    for (int i = 0; i < numberOfVoters; ++i) {
+        PluralityVoting::makeVote(candidateList, voterList);
+    }
+    CandidateList::sortByPointsVoteList(candidateList, 3);
+    CandidateList::setPlacesByOrder(candidateList);
+    CandidateList::showList(candidateList, 2, false);
+    VoterList::showVoterList(voterList, false, 1);
+    voterList.clear();
+    CandidateList::sortByPointsVoteList(candidateList, 0);
+
+    cout << "~~~~~~~~~~~~~~~~~~~~" << endl;
+
+    for (int i = 0; i < numberOfVoters; ++i) {
+        BordaCountVoting::makeVote(candidateList, voterList);
+    }
+    CandidateList::sortByPointsVoteList(candidateList, 4);
+    CandidateList::setPlacesByOrder(candidateList);
+    CandidateList::showList(candidateList, 3, false);
+    VoterList::showVoterList(voterList, false, 2);
+    voterList.clear();
+    CandidateList::sortByPointsVoteList(candidateList, 0);
+
+    cout << "~~~~~~~~~~~~~~~~~~~~" << endl;
+
+    for (int i = 0; i < numberOfVoters; ++i) {
+        NegativeVoting::makeVote(candidateList, voterList);
+    }
+    CandidateList::sortByPointsVoteList(candidateList, 5);
+    CandidateList::setPlacesByOrder(candidateList);
+    CandidateList::showList(candidateList, 4, false);
+    VoterList::showVoterList(voterList, false, 3);
+    voterList.clear();
+    candidateList.clear();
+
+    cout << "~~~~~~~~~~~~~~~~~~~~" << endl;
 
     return 0;
 }

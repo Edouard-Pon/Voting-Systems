@@ -21,7 +21,7 @@ void BordaCountVoting::makeVote(vector<vector<string>> &candidateList, vector<ve
     cout << endl;
     VoterList::addVoter(voterList, voterName, voterSurname, size(voterList));
     while (voteCounter != numberOfVotePerVoter) {
-        CandidateList::showList(candidateList, true);
+        CandidateList::showList(candidateList, 3, true);
         cout << "Rules: First vote +4 points for Candidate, Second +3, Third +2 and Fourth +1" << endl;
         cout << "Type 0 to stop voting | Make your vote by choosing id: ";
         cin >> candidateId;
