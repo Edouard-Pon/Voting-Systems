@@ -12,7 +12,7 @@ void BordaCountVoting::makeVote(vector<vector<string>> &candidateList, vector<ve
     string voterName;
     string voterSurname;
 
-    cout << "This is a Borda Count Voting!" << endl;
+    cout << endl << "This is a Borda Count Voting!" << endl;
     cout << "Enter your Name: ";
     cin >> voterName;
     cout << endl;
@@ -20,9 +20,9 @@ void BordaCountVoting::makeVote(vector<vector<string>> &candidateList, vector<ve
     cin >> voterSurname;
     cout << endl;
     VoterList::addVoter(voterList, voterName, voterSurname, size(voterList));
+    CandidateList::showList(candidateList, 3, true, size(candidateList));
+    cout << "Rules: First vote +4 points for Candidate, Second +3, Third +2 and Fourth +1" << endl;
     while (voteCounter != numberOfVotePerVoter) {
-        CandidateList::showList(candidateList, 3, true, size(candidateList));
-        cout << "Rules: First vote +4 points for Candidate, Second +3, Third +2 and Fourth +1" << endl;
         cout << "Type 0 to stop voting | Make your vote by choosing id: ";
         cin >> candidateId;
         cout << endl;

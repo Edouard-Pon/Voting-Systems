@@ -16,7 +16,7 @@ void CandidateList::addToList(vector<vector<string>> &list, const string name, c
 void CandidateList::showList(const vector<vector<string>> list, const unsigned voteSystemId, const bool hidePointsPlace,
                              const unsigned numberOfCandidates) {
     const string sepLine = "====================";
-    cout << sepLine << endl;
+    cout << sepLine << endl << "Candidate List: " << endl;
     for (int i = 0; i < numberOfCandidates; ++i) {
         cout << "id: " << list[i][0] << " | "
              << "name: " << list[i][1] << " | ";
@@ -95,6 +95,7 @@ string CandidateList::getCandidateNameById(vector<vector<string>> candidateList,
             return candidateList[i][1];
         }
     }
+    return "Not Found";
 }
 
 unsigned CandidateList::getCandidateWithSamePoints(vector<vector<string>> candidateList, const unsigned pointsIndex) {

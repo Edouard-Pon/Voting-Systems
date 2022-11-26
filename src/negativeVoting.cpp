@@ -12,7 +12,7 @@ void NegativeVoting::makeVote(vector<vector<string>> &candidateList, vector<vect
     string voterName;
     string voterSurname;
 
-    cout << "This is a Negative Voting!" << endl;
+    cout << endl << "This is a Negative Voting!" << endl;
     cout << "Enter your Name: ";
     cin >> voterName;
     cout << endl;
@@ -20,9 +20,9 @@ void NegativeVoting::makeVote(vector<vector<string>> &candidateList, vector<vect
     cin >> voterSurname;
     cout << endl;
     VoterList::addVoter(voterList, voterName, voterSurname, size(voterList));
+    CandidateList::showList(candidateList, 4, true, size(candidateList));
+    cout << "Rules: Choose For or Against then vote for 1 candidate" << endl;
     while (voteCounter != numberOfVotePerVoter) {
-        CandidateList::showList(candidateList, 4, true, size(candidateList));
-        cout << "Rules: Choose For or Against then vote for 1 candidate" << endl;
         cout << "For = 1 | Against = 2: ";
         cin >> forAgainst;
         cout << endl;

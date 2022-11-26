@@ -34,6 +34,7 @@ void Election::startElection(vector<vector<string>> &candidateList, vector<vecto
     while (true) {
         startVoting(candidateList, voterList, numberOfVoters, votingSystemId);
         electionCalculation(candidateList, voterList, pointsIndex);
+        cout << endl;
         CandidateList::showList(candidateList, votingSystemId, false, size(candidateList));
         numberOfWinners = CandidateList::getCandidateWithSamePoints(candidateList, pointsIndex);
         if (size(voterList) != 0) VoterList::showVoterList(voterList, false, votingSystemId);

@@ -12,7 +12,7 @@ void MultipleChoiceVoting::makeVote(vector<vector<string>> &candidateList, vecto
     string voterName;
     string voterSurname;
 
-    cout << "This is a Multiple Choice Voting!" << endl;
+    cout << endl << "This is a Multiple Choice Voting!" << endl;
     cout << "Enter your Name: ";
     cin >> voterName;
     cout << endl;
@@ -20,9 +20,9 @@ void MultipleChoiceVoting::makeVote(vector<vector<string>> &candidateList, vecto
     cin >> voterSurname;
     cout << endl;
     VoterList::addVoter(voterList, voterName, voterSurname, size(voterList));
+    CandidateList::showList(candidateList, 2, true, size(candidateList));
+    cout << "Rules: You can vote for " << numberOfVotePerVoter << " candidates!" << endl;
     while (voteCounter != numberOfVotePerVoter) {
-        CandidateList::showList(candidateList, 2, true, size(candidateList));
-        cout << "Rules: You can vote for " << numberOfVotePerVoter << " candidates!" << endl;
         cout << "Type 0 to stop voting | Make your vote by choosing id: ";
         cin >> candidateId;
         cout << endl;
