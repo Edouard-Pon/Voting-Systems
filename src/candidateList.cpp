@@ -21,7 +21,7 @@ void CandidateList::showList(const vector<vector<string>> list, const unsigned v
         cout << "id: " << list[i][0] << " | "
              << "name: " << list[i][1] << " | ";
         if (voteSystemId == 1 && !hidePointsPlace) cout << "sb points: " << list[i][2] << " | ";
-        else if (voteSystemId == 2 && !hidePointsPlace) cout << "pv points: " << list[i][3] << " | ";
+        else if (voteSystemId == 2 && !hidePointsPlace) cout << "mc points: " << list[i][3] << " | ";
         else if (voteSystemId == 3 && !hidePointsPlace) cout << "bv points: " << list[i][4] << " | ";
         else if (voteSystemId == 4 && !hidePointsPlace) cout << "nv points: " << list[i][5] << " | ";
         if (!hidePointsPlace) cout << "place: " << list[i][6];
@@ -41,9 +41,10 @@ void CandidateList::createVoteList(vector<vector<string>> &list) {
     cout << endl;
     list.resize(listSize);
 
+    cin.ignore();
     for (unsigned id = 0; id < size(list); ++id) {
         cout << "Enter candidate name: ";
-        cin >> candidateName;
+        getline(cin, candidateName);
         cout << endl;
         addToList(list, candidateName, id, points, place);
     }

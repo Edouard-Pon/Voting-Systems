@@ -25,7 +25,7 @@ int main() {
     Election::startElection(candidateList, voterList, numberOfVoters, 1, 2);
     cout << "~~~~~~~~~~~~~~~~~~~~" << endl;
 
-    // Plurality Voting
+    // Multiple Choice Voting
     Election::startElection(candidateList, voterList, numberOfVoters, 2, 3);
     cout << "~~~~~~~~~~~~~~~~~~~~" << endl;
 

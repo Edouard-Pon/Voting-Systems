@@ -38,15 +38,14 @@ void VoterList::showVoterList(vector<vector<string>> voterList, bool hideVotes, 
         if (hideVotes) break;
         else if (voteSystemId == 2) {
             for (unsigned j = 3; j < size(voterList[i]); ++j) cout << "candidate: " << voterList[i][j] << " | ";
-            cout << endl;
         } else if (voteSystemId == 3) {
             unsigned count = 5;
             for (unsigned j = 3; j < size(voterList[i]); ++j) cout << "+ " << --count << " to candidate: " << voterList[i][j] << " | ";
-            cout << endl;
-        } else if (voteSystemId == 4) {
-            cout << "candidate: " << voterList[i][3] << " | "
-                << voterList[i][4] << endl;
+        } else if (voteSystemId == 4 && size(voterList[i]) > 3) {
+            cout << "candidate: ";
+            for (unsigned j = 3; j < size(voterList[i]); ++j) cout << voterList[i][j] << " | ";
         }
+        cout << endl;
     }
     cout << sepLine << endl;
 }

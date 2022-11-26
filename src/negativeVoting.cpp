@@ -14,10 +14,11 @@ void NegativeVoting::makeVote(vector<vector<string>> &candidateList, vector<vect
 
     cout << endl << "This is a Negative Voting!" << endl;
     cout << "Enter your Name: ";
-    cin >> voterName;
+    cin.ignore();
+    getline(cin, voterName);
     cout << endl;
     cout << "Enter your Surname: ";
-    cin >> voterSurname;
+    getline(cin, voterSurname);
     cout << endl;
     VoterList::addVoter(voterList, voterName, voterSurname, size(voterList));
     CandidateList::showList(candidateList, 4, true, size(candidateList));
