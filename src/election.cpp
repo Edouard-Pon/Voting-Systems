@@ -46,6 +46,7 @@ void Election::startElection(vector<vector<string>> &candidateList, vector<vecto
         }
         cout << numberOfWinners << " Candidates in 1st place. Next tour with these Candidates will start!" << endl;
         if (size(candidateList) > 2) candidateList.erase(candidateList.begin() + numberOfWinners, candidateList.end());
+        voterList.clear();
         CandidateList::resetCandidatesPoints(candidateList, 2);
     }
 }

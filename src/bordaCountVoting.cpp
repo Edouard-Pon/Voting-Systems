@@ -30,6 +30,8 @@ void BordaCountVoting::makeVote(vector<vector<string>> &candidateList, vector<ve
         if (candidateId == 0) break;
         VoterList::addSelectedCandidate(voterList, CandidateList::getCandidateNameById(candidateList, candidateId), size(voterList));
         CandidateList::addPoints(candidateList, candidateId, points, pointsIndex);
+        cout << "You voted for id: " << candidateId << " | candidate: " << CandidateList::getCandidateNameById(candidateList, candidateId);
+        cout << endl;
         --points;
         ++voteCounter;
     }

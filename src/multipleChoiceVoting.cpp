@@ -30,6 +30,8 @@ void MultipleChoiceVoting::makeVote(vector<vector<string>> &candidateList, vecto
         if (candidateId == 0) break;
         VoterList::addSelectedCandidate(voterList, CandidateList::getCandidateNameById(candidateList, candidateId), size(voterList));
         CandidateList::addPoints(candidateList, candidateId, points, pointsIndex);
+        cout << "You voted for id: " << candidateId << " | candidate: " << CandidateList::getCandidateNameById(candidateList, candidateId);
+        cout << endl;
         ++voteCounter;
     }
 }

@@ -34,10 +34,14 @@ void NegativeVoting::makeVote(vector<vector<string>> &candidateList, vector<vect
         VoterList::addSelectedCandidate(voterList, CandidateList::getCandidateNameById(candidateList, candidateId), size(voterList));
         if (forAgainst == 1) {
             CandidateList::addPoints(candidateList, candidateId, points, pointsIndex);
+            cout << "You voted for id: " << candidateId << " | candidate: " << CandidateList::getCandidateNameById(candidateList, candidateId);
+            cout << endl;
             VoterList::addForAgainst(voterList, size(voterList), false);
         }
         else if (forAgainst == 2) {
             CandidateList::removePoints(candidateList, candidateId, points, pointsIndex);
+            cout << "You voted against id: " << candidateId << " | candidate: " << CandidateList::getCandidateNameById(candidateList, candidateId);
+            cout << endl;
             VoterList::addForAgainst(voterList, size(voterList), true);
         }
         ++voteCounter;
