@@ -1,5 +1,5 @@
-#ifndef VOTING_SYSTEMS_PLURALITYVOTING_H
-#define VOTING_SYSTEMS_PLURALITYVOTING_H
+#ifndef VOTING_SYSTEMS_MULTIPLECHOICEVOTING_H
+#define VOTING_SYSTEMS_MULTIPLECHOICEVOTING_H
 
 #include <iostream>
 #include <vector>
@@ -7,7 +7,7 @@
 using namespace std;
 
 
-class PluralityVoting {
+class MultipleChoiceVoting {
 
 public:
     static void makeVote(vector<vector<string>> &candidateList, vector<vector<string>> &voterList);

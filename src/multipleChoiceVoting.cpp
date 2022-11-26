@@ -1,9 +1,9 @@
-#include "pluralityVoting.h"
+#include "multipleChoiceVoting.h"
 #include "candidateList.h"
 #include "voterList.h"
 
 
-void PluralityVoting::makeVote(vector<vector<string>> &candidateList, vector<vector<string>> &voterList) {
+void MultipleChoiceVoting::makeVote(vector<vector<string>> &candidateList, vector<vector<string>> &voterList) {
     unsigned candidateId;
     unsigned voteCounter = 0;
     const unsigned numberOfVotePerVoter = (size(candidateList) < 10) ? size(candidateList) / 2 : 5;
@@ -12,7 +12,7 @@ void PluralityVoting::makeVote(vector<vector<string>> &candidateList, vector<vec
     string voterName;
     string voterSurname;
 
-    cout << "This is a Plurality Vote!" << endl;
+    cout << "This is a Multiple Choice Voting!" << endl;
     cout << "Enter your Name: ";
     cin >> voterName;
     cout << endl;
@@ -21,8 +21,9 @@ void PluralityVoting::makeVote(vector<vector<string>> &candidateList, vector<vec
     cout << endl;
     VoterList::addVoter(voterList, voterName, voterSurname, size(voterList));
     while (voteCounter != numberOfVotePerVoter) {
-        CandidateList::showList(candidateList, 2, true);
-        cout << "Make your vote by choosing id: ";
+        CandidateList::showList(candidateList, 2, true, size(candidateList));
+        cout << "Rules: You can vote for " << numberOfVotePerVoter << " candidates!" << endl;
+        cout << "Type 0 to stop voting | Make your vote by choosing id: ";
         cin >> candidateId;
         cout << endl;
         if (candidateId == 0) break;
