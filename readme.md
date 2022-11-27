@@ -10,3 +10,11 @@ predicted_output.txt, if they have no difference, then test passed.
 ```bash
 ./Voting_Systems < input.txt > output.txt
 ```
+
+2. Compile
+```bash
+mkdir build
+cd build
+cmake ../
+cmake --build .
+```
